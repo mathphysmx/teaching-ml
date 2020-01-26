@@ -1,0 +1,73 @@
+# This file installs all Python required packages
+
+# cd /path/to/this/mlclassgeo.yml
+# conda env create -f mlclassgeo.yml # OR "conda env update -f py368.yml" after installing Intel Python and activating
+# conda activate mlclassgeo
+
+name: mlclassgeo
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.7
+  - graphviz
+  - imageio
+  - ipython
+  - ipywidgets
+  - joblib
+  - jupyter
+  - jupyterlab
+  - matplotlib
+  - seaborn
+  - plotly
+  - bokeh
+  - nbdime
+  - nltk
+  - numexpr
+  - numpy
+  - pandas
+  - pillow
+  - pip
+  - py-xgboost
+  - pydot
+  - pyopengl
+  - python-graphviz
+  - requests
+  - scikit-image
+  - scikit-learn
+  - scipy
+  - tqdm
+  - pyodbc
+  - sqlalchemy
+  - xlrd # to read excel files
+  - openpyxl
+  - geopandas
+  - folium
+  - wheel
+  - widgetsnbextension
+  - pip:
+    #- atari-py==0.2.6 # NOT ON WINDOWS YET
+    - pybind11 # c++11 bindings
+    - ipykernel
+    - gym
+    - opencv-python
+    - psutil
+    - pyglet
+    - tensorflow # or tensorflow-gpu if gpu
+    - tensorboard
+    - tensorflow-datasets
+    - tensorflow-estimator
+    - tensorflow-hub
+    - tensorflow-probability
+    - lasio # geophysical well logs .LAS import/export 
+    - welly # well log interpretation
+    #- tensorflow-addons==0.6.0 # NOT ON WINDOWS YET
+    #- tensorflow-data-validation==0.15.0 # NOT ON WINDOWS YET
+    #- tensorflow-metadata==0.15.1 # NOT ON WINDOWS YET
+    #- tensorflow-model-analysis==0.15.4 # NOT ON WINDOWS YET
+    - tensorflow-serving-api # or tensorflow-serving-api-gpu if gpu
+    #- tensorflow-transform==0.15.0 # NOT ON WINDOWS YET
+    - tf-agents
+    #- tfx==0.15.0 # NOT ON WINDOWS YET
+    - urlextract
+    #- pyvirtualdisplay # add if on headless server
