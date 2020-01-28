@@ -4,7 +4,7 @@ This project host class material for the machine learning in geosciences.
 
 # Bibliography
 
-* **Mathematical theory**.
+* **Mathematics and algorithms**.
   * Bishop, Christopher. 2006. Pattern Recognition and Machine Learning. Information Science and Statistics. New York: Springer-Verlag. https://www.springer.com/us/book/9780387310732.
   
   * Hastie, Trevor, Robert Tibshirani, and J. H. Friedman. 2009. The Elements of Statistical Learning: Data Mining, Inference, and Prediction. Springer Series in Statistics. New York, NY: Springer. https://www.springer.com/gp/book/9780387848570.
