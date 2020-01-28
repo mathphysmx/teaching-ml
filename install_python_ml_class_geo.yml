@@ -1,8 +1,9 @@
 # This file installs all Python required packages
 
-# cd /path/to/this/mlclassgeo.yml
-# conda env create -f mlclassgeo.yml # OR "conda env update -f py368.yml" after installing Intel Python and activating
+# cd /path/to/this/install_python_ml_class_geo.yml
+# conda env create -f install_python_ml_class_geo.yml # OR "conda env update -f py368.yml" after installing Intel Python and activating
 # conda activate mlclassgeo
+# conda remove --name mlclassgeo --all 
 
 name: mlclassgeo
 channels:

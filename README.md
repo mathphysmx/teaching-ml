@@ -1,6 +1,6 @@
 Temario y bibliografía completa en español [aquí](TEMARIO_syllabus.pdf).
 
-This project host class material for the machine learning in geosciences.
+This project hosts material for the **machine learning in geosciences** class.
 
 # Bibliography
 
