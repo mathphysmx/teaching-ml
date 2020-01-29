@@ -10,3 +10,12 @@ x = pd.Series([0, 1, 2])
 y = pd.Series([0.1, 0.9, 4.1]) + b
 
 m = -b * (x.sum() / (y**2).sum())
+
+#%%
+from seaborn import load_dataset
+
+iris = load_dataset('iris')
+
+iris.plot(kind = 'scatter', x = 'sepal_length', y = 'sepal_width')
+
+# %%

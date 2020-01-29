@@ -54,6 +54,7 @@ dependencies:
     - opencv-python
     - psutil
     - pyglet
+    - beautifulsoup4 # web scraping, many other packages use this one
     - tensorflow # or tensorflow-gpu if gpu
     - tensorboard
     - tensorflow-datasets
