@@ -5,7 +5,7 @@ This project hosts material for the **machine learning in geosciences** class.
 Related sites for software demonstrations are from:
 
 * https://github.com/ageron/handson-ml2
-* https://github.com/GeostatsGuy 
+* https://github.com/GeostatsGuy?tab=repositories 
 
 # Bibliography
 
