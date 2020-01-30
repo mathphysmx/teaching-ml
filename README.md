@@ -2,6 +2,11 @@ Temario y bibliografía completa en español [aquí](TEMARIO_syllabus.pdf).
 
 This project hosts material for the **machine learning in geosciences** class.
 
+Related sites for software demonstrations are from:
+
+* https://github.com/ageron/handson-ml2
+* https://github.com/GeostatsGuy 
+
 # Bibliography
 
 * **Mathematics and algorithms**.
