@@ -9,6 +9,8 @@ Related sites for software demonstrations are from:
 
 # Bibliography
 
+mas tarea
+
 * **Mathematics and algorithms**.
   * Bishop, Christopher. 2006. Pattern Recognition and Machine Learning. Information Science and Statistics. New York: Springer-Verlag. https://www.springer.com/us/book/9780387310732.
   
