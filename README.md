@@ -3,16 +3,22 @@
 Temario y bibliografía completa en español [aquí](TEMARIO_syllabus.pdf).
 
 Posgrado en Ciencias de la Tierra, **UNAM**
+
 Entidad: 72
+
 Act. Académica: 63634
+
 Grupo: T004
+
 Tema selecto de modelación: Machine Learning
 
-Horario y lugar
+**Horario y lugar**
+
 Martes 08:00 - 10:00 am, Unidad de Posgrado Aula F-305
+
 Jueves 08:00 - 10:00 am, Unidad de Posgrado Aula B-307
 
-Contacto: mentofran@gmail.com
+**Contacto**: mentofran@gmail.com
 
 # Class material
 
