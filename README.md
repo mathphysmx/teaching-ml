@@ -2,6 +2,17 @@ Temario y bibliografía completa en español [aquí](TEMARIO_syllabus.pdf).
 
 This project hosts material for the **machine learning in geosciences** class.
 
+Posgrado en Ciencias de la Tierra, UNAM
+Entidad: 72
+Act. Académica: 63634
+Grupo: T004
+Tema selecto de modelación: Machine Learning
+
+Horario y lugar
+Martes 08:00 - 10:00 am, Unidad de Posgrado Aula F-305
+Jueves 08:00 - 10:00 am, Unidad de Posgrado Aula B-307
+
+
 Related sites for software demonstrations are:
 
 * https://github.com/ageron/handson-ml2
