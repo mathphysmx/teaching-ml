@@ -4,13 +4,13 @@ Temario y bibliografía completa en español [aquí](TEMARIO_syllabus.pdf).
 
 Posgrado en Ciencias de la Tierra, **UNAM**
 
-Entidad: 72
+*Entidad*: 72
 
-Act. Académica: 63634
+*Act. Académica*: 63634
 
-Grupo: T004
+*Grupo*: T004
 
-Tema selecto de modelación: Machine Learning
+*Tema selecto de modelación*: Machine Learning
 
 **Horario y lugar**
 
