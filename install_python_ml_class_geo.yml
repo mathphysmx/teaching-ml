@@ -45,14 +45,16 @@ dependencies:
   - geopandas
   - folium
   - wheel
+  - intake
   - widgetsnbextension
+  - bruges # previously  agilegeo. https://agilescientific.com/blog/2015/8/5/introducing-bruges
   - pip:
     #- atari-py==0.2.6 # NOT ON WINDOWS YET
     - pybind11 # c++11 bindings
     - ipykernel
     - gym
     - opencv-python
-    - psutil
+    - psutil # to save plotly images
     - pyglet
     - beautifulsoup4 # web scraping, many other packages use this one
     - tensorflow # or tensorflow-gpu if gpu
@@ -63,6 +65,8 @@ dependencies:
     - tensorflow-probability
     - lasio # geophysical well logs .LAS import/export 
     - welly # well log interpretation
+    - striplog
+    - geostatspy # GSLIB Geostatistics of Michael Pyrcz
     #- tensorflow-addons==0.6.0 # NOT ON WINDOWS YET
     #- tensorflow-data-validation==0.15.0 # NOT ON WINDOWS YET
     #- tensorflow-metadata==0.15.1 # NOT ON WINDOWS YET
