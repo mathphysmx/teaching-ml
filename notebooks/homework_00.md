@@ -1,4 +1,4 @@
-## Homework assigment 0
+# Homework assigment 0
 
 1. Get the UNAM internet connection (RIU).
 
