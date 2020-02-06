@@ -1,12 +1,12 @@
 # Homework assigment 0
 
 1. Get the UNAM internet connection (RIU).
+2. Install
+   * Install [Visual Studio Code](https://code.visualstudio.com/download).
 
-2. Install [Visual Studio Code](https://code.visualstudio.com/download).
+   * Install [Zeal](https://zealdocs.org/) ([Dash](https://kapeli.com/dash) for Mac) offline documentation.
 
-3. Install [Zeal](https://zealdocs.org/) ([Dash](https://kapeli.com/dash) for Mac) offline documentation.
-
-4. Install [Anaconda Python](https://www.anaconda.com/distribution/) 3.x.
+   * Install [Anaconda Python](https://www.anaconda.com/distribution/) 3.x.
 
 # Homework assigment 1
 
