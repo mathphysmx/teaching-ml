@@ -1,7 +1,16 @@
 ## Homework assigment 0
 
+1. Get the UNAM internet connection (RIU).
+
+2. Install [Visual Studio Code](https://code.visualstudio.com/download).
+
+3. Install [Zeal](https://zealdocs.org/) ([Dash](https://kapeli.com/dash) for Mac) offline documentation.
+
+4. Install [Anaconda Python](https://www.anaconda.com/distribution/) 3.x.
+
+# Homework assigment 1
+
 1. Sofware for this course [installation estimated time: 1-3 hrs]
-   1. Get the UNAM internet connection.
    2. Create a [GitHub account](https://github.com/join).
    3. Install
       1. **Linux**
@@ -12,9 +21,7 @@
          3. [Visual C++ Redistributable Packages for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40784).
          4. [Visual Studio](https://visualstudio.microsoft.com/downloads/?utm_medium=post-banner&utm_source=microsoft.com&utm_campaign=channel+banner&utm_content=launch+vs2019)
          5. **Intel** and/or **Nvidia** drivers from [nvidia.com](https://www.nvidia.com/Download/index.aspx?lang=en-us). Refer to TensorFlow's [GPU installation instructions](https://tensorflow.org/install/gpu) for more details on GPU speed up.
-   4. Install [Anaconda Python](https://www.anaconda.com/distribution/) 3.x.
-   5. Install [VSCode](https://code.visualstudio.com/download).
-   6. Create an Anaconda virtual environment with the required packages ([install_python_ml_class_geo.yml](https://github.com/mathphysmx/teaching-ml/blob/master/install_python_ml_class_geo.yml) see animated .gif)
+   5. Create an Anaconda virtual environment with the required packages ([install_python_ml_class_geo.yml](https://github.com/mathphysmx/teaching-ml/blob/master/install_python_ml_class_geo.yml) see animated .gif)
       1. Test jupyterLab (Open) `>_ jupyter lab`.
       2. test the (TensorFlow) installation `>_ python -c 'import tensorflow as tf;print(tf.__version__)'` (See animated .gif)
 

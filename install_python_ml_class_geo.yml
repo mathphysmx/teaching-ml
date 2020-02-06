@@ -5,6 +5,13 @@
 # conda activate mlclassgeo
 # conda remove --name mlclassgeo --all 
 
+# # For this environment to show up in JupyterLab, execute in the terminal:
+# conda activate mlclassgeo
+# conda install ipykernel
+# ipython kernel install --user --name=mlclassgeo
+# conda deactivate
+
+
 name: mlclassgeo
 channels:
   - conda-forge
