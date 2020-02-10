@@ -11,6 +11,10 @@
 # ipython kernel install --user --name=mlclassgeo
 # conda deactivate
 
+# Upgrade JupyterLab. https://plot.ly/python/getting-started/#jupyterlab-support-python-35
+# conda install -c conda-forge jupyterlab=1.2.6
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
 
 name: mlclassgeo
 channels:
@@ -28,6 +32,7 @@ dependencies:
   - matplotlib
   - seaborn
   - plotly
+  - nodejs # requirement for Interactive plots
   - bokeh
   - nbdime
   - nltk

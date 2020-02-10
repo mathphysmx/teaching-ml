@@ -26,3 +26,46 @@ iris.plot(kind='scatter', x = 'petal_length', y = 'petal_width')
 X=np.linspace(1, 7, num=7)
 plt.plot(X, t0 + t1*X, "b")
 plt.show()
+
+#############3 linear regression
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# n = 1
+# Instances (Sample points)
+xi = 12 # data points o o o o o
+yi = 4
+m = yi/xi
+plt.scatter(xi,yi)
+x = np.linspace(10, 14, num = 5); x # model Line _________
+y = m * x
+plt.plot(x, y)
+plt.axis('equal')
+plt.show()
+
+# n = 2
+s = 1
+# ax = 6; ay = 2 # perpendicular vectors (data points)
+# xi = np.array([ax, -ay])
+# yi = np.array([ay, ax])
+xi = np.array([3, 12])
+yi = np.array([9, 4])
+m = sum(xi * yi) / sum(xi**2)
+# m = xi[0] * xi[1] + yi[0] * yi[1] / sum(xi**2)
+plt.scatter(xi,yi)
+# Line
+x = np.linspace(min(xi), max(xi), num = 5); x
+y = m * x
+plt.plot(x, y)
+plt.axis('equal')
+plt.show()
+
+# n = n
+X = 2 * np.random.rand(100, 1)
+y = -3 * X + np.random.randn(100, 1)
+plt.plot(X,y, "b.")
+m = sum(X * y) / sum(X**2); print(m)
+y_predict = m * X
+plt.plot(X,y_predict, "r-")
+plt.show()
