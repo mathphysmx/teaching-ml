@@ -36,10 +36,10 @@ import matplotlib.pyplot as plt
 # Instances (Sample points)
 xi = 12 # data points o o o o o
 yi = 4
-m = yi/xi
+theta = yi/xi
 plt.scatter(xi,yi)
 x = np.linspace(10, 14, num = 5); x # model Line _________
-y = m * x
+y = theta * x
 plt.plot(x, y)
 plt.axis('equal')
 plt.show()
@@ -49,14 +49,13 @@ s = 1
 # ax = 6; ay = 2 # perpendicular vectors (data points)
 # xi = np.array([ax, -ay])
 # yi = np.array([ay, ax])
-xi = np.array([3, 12])
+xi = np.array([3, 12]) # data points o o o o o
 yi = np.array([9, 4])
-m = sum(xi * yi) / sum(xi**2)
-# m = xi[0] * xi[1] + yi[0] * yi[1] / sum(xi**2)
+theta = sum(xi * yi) / sum(xi**2)
 plt.scatter(xi,yi)
-# Line
+# Model
 x = np.linspace(min(xi), max(xi), num = 5); x
-y = m * x
+y = theta * x
 plt.plot(x, y)
 plt.axis('equal')
 plt.show()
