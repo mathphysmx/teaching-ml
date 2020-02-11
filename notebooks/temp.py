@@ -62,7 +62,7 @@ plt.show()
 
 # n = n
 X = 2 * np.random.rand(100, 1)
-y = -3 * X + np.random.randn(100, 1)
+y = -3 * X + np.random.rand(100, 1)
 plt.plot(X,y, "b.")
 m = sum(X * y) / sum(X**2); print(m)
 y_predict = m * X
