@@ -1,0 +1,4 @@
+.ipynb_checkpoints
+settings.json
+datasets/*-checkpoint.ipynb
+notebooks/datasets/*.tgz

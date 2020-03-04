@@ -1,6 +1,6 @@
 import pandas as pd
 
-x = pd.read_csv("datasets/Guangren_table34.txt")
+x = pd.read_csv("datasets/Guangren_table34.csv")
 x.info()
 
 import matplotlib.pyplot as plt
