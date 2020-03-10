@@ -16,7 +16,7 @@
 # jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 
-name: mlclassgeo1
+name: mlclassgeo
 channels:
   - conda-forge
   - defaults
@@ -54,22 +54,24 @@ dependencies:
   - sqlalchemy
   - xlrd # to read excel files
   - openpyxl
+  - ipykernel
   - geopandas
   - folium
   - wheel
   - intake
   - widgetsnbextension
+  - tensorflow
   - pip:
     #- atari-py==0.2.6 # NOT ON WINDOWS YET
     - pybind11 # c++11 bindings
-    - ipykernel
+    # - ipykernel
     - gym
     - opencv-python
     - psutil # to save plotly images
     - bruges # previously  agilegeo. https://agilescientific.com/blog/2015/8/5/introducing-bruges
     - pyglet
     - beautifulsoup4 # web scraping, many other packages use this one
-    - tensorflow # or tensorflow-gpu if gpu
+    # - tensorflow # or tensorflow-gpu if gpu
     - tensorboard
     - tensorflow-datasets
     - tensorflow-estimator

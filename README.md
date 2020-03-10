@@ -29,6 +29,7 @@ Related sites for software demonstrations are:
 
 * https://github.com/ageron/handson-ml2
 * https://github.com/GeostatsGuy?tab=repositories 
+* [Equinor's Volve Oil & Gas dataset](https://www.equinor.com/en/how-and-why/digitalisation-in-our-dna/volve-field-data-village-download.html)
 
 # Bibliography
 

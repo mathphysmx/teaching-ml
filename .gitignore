@@ -1,4 +1,5 @@
 .ipynb_checkpoints
 settings.json
+Untitled*.ipynb
 datasets/*-checkpoint.ipynb
 notebooks/datasets/*.tgz
