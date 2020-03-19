@@ -8,5 +8,6 @@ Reynaldo Santos Basurto, rockernaldo@gmail.com
 
 Felipe Abraham Santana Román, fasantana@imp.mx
 
-Angel Cervantes, jahudiel_10@hotmail.com
+Angel Moises Cervantes, jahudiel_10@hotmail.com
 
+Moises Franco mouses896@hotmail.com

@@ -1,5 +1,10 @@
 import pandas as pd
 
+x = pd.DataFrame({'col1': ['a', 'a'], 'col2': [1, 1]})
+y = pd.DataFrame({'col1': ['a', 'a', 'a'], 'col2': ['b', 'b', 'c']})
+
+pd.merge(x,y, how = 'outer', on = 'col1')
+
 x = pd.read_csv("datasets/Guangren_table34.csv")
 x.info()
 
@@ -25,6 +30,8 @@ plt.show()
 
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
+
 
 # n = 1
 # Instances (Sample points)
@@ -55,10 +62,36 @@ plt.axis('equal')
 plt.show()
 
 # n = n
-X = 2 * np.random.rand(100, 1)
-y = -3 * X + np.random.rand(100, 1)
+n = 100
+X = 2 * np.random.rand(n, 1)
+y = -3 * X + np.random.rand(n, 1)
 plt.plot(X,y, "b.")
 m = sum(X * y) / sum(X**2); print(m)
 y_predict = m * X
 plt.plot(X,y_predict, "r-")
 plt.show()
+
+df = pd.DataFrame(np.hstack((X, y)), columns = ['x', 'y'])
+df.plot('x', 'y', kind='scatter')
+plt.show()
+
+from sklearn.model_selection import train_test_split
+train, test = train_test_split(df, test_size = 0.2, random_state = 42)
+
+from sklearn.linear_model import LinearRegression
+mlmodel_reg=LinearRegression()
+mlmodel_reg.fit(train.x.T.values.reshape(-1,1),train.y.T.values)
+mlmodel_reg.intercept_
+mlmodel_reg.coef_
+
+y_predict_sklearn = mlmodel_reg.intercept_ + mlmodel_reg.coef_ * X
+plt.plot(X,y, "b.")
+plt.plot(X,y_predict_sklearn, "r-")
+plt.show()
+
+from sklearn.metrics import mean_squared_error
+mse = mean_squared_error(df.y, y_predict);mse
+
+train_predictions=mlmodel_reg.predict(X)
+mse = mean_squared_error(df.y, train_predictions); mse
+
