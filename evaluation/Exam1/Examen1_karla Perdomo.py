@@ -16,6 +16,8 @@ import sklearn
 assert sklearn.__version__ >= "0.20"
 import seaborn as sns
 
+from itertools import if
+[i for i in filter(lambda x:x%5, islice(count(5), 10))]
 
 
 #Pregunta 4
