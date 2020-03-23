@@ -1,6 +1,6 @@
 Karla Perdomo Velázquez, kperdomov93@gmail.com
 
-Yuri Yerye, yuriyerye@gmail.com
+Yuri Yerye Isaac, yuriyerye@gmail.com
 
 David Valentin,  cdvalentinr@unal.edu.co
 

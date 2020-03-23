@@ -1,4 +1,4 @@
-# Homework assigment 0
+# Homework assigment 0-A
 
 1. Get the UNAM internet connection (RIU).
 2. Install
@@ -8,7 +8,7 @@
 
    * Install [Anaconda Python](https://www.anaconda.com/distribution/) 3.x.
 
-# Homework assigment 1
+# Homework assigment 0-B
 
 1. Sofware for this course [installation estimated time: 1-3 hrs]
    2. Create a [GitHub account](https://github.com/join).
@@ -23,7 +23,9 @@
          5. **Intel** and/or **Nvidia** drivers from [nvidia.com](https://www.nvidia.com/Download/index.aspx?lang=en-us). Refer to TensorFlow's [GPU installation instructions](https://tensorflow.org/install/gpu) for more details on GPU speed up.
    5. Create an Anaconda virtual environment with the required packages ([install_python_ml_class_geo.yml](https://github.com/mathphysmx/teaching-ml/blob/master/install_python_ml_class_geo.yml) see animated .gif)
       1. Test jupyterLab (Open) `>_ jupyter lab`.
-      2. test the (TensorFlow) installation `>_ python -c 'import tensorflow as tf;print(tf.__version__)'` (See animated .gif)
+      2. Test TensorFlow installation `>_ python -c 'import tensorflow as tf;print(tf.__version__)'` (See animated .gif)
+
+# Homework assigment 0-C
 
 2. For $f(x) = x^2 - 6x + 5$, do the following:
    i. Compute the derivative, find the minimum and/or maximum, and the intersection with the $x$ and $y$ axis.
@@ -50,10 +52,11 @@
 
    Do the following matrix operations
 
-   1. $A^T$
-   2. $Ax$
-   3. $\theta^T x $. $\theta = (\theta_1, \ldots, \theta_n)^T$, $x = (x_1, \ldots, x_n)^T$
-   4. $x^Tx$. $x = (x_1, \ldots, x_n)^T$
+   i. $A^T$
+   ii. $Ax$
+   iii. $\theta^T x $. $\theta = (\theta_1, \ldots, \theta_n)^T$, $x = (x_1, \ldots, x_n)^T$
+   iv. $x^Tx$. $x = (x_1, \ldots, x_n)^T$
+
 5. Write in matrix form, the following system of equations.
    $3x_1 + 6x_2 = 56$
    $-5x_1 + 5.7x_2 = 20$ 
