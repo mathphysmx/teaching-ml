@@ -6,23 +6,17 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 
 
-i=5
 co=pd.DataFrame({"x":[-1,0,3],"y":[-7,0,2]})
-#c=['x':[-1,0,3],'y':[-3-i,4+i,6-i]]
-print(co)
-ao=co['x']
-au=co['y']
-yi=2*ao+1
+centers = pd.DataFrame({'x':[1,5], 'y':[2, 6]})
+centers.iloc[0, 0]
 
-((yi - au)**2).sum()
+from sklearn.cluster import KMeans
 
 
 
 
-x = pd.DataFrame({'col1': ['a', 'a'], 'col2': [1, 1]})
-y = pd.DataFrame({'col1': ['a', 'a', 'a'], 'col2': ['b', 'b', 'c']})
 
-pd.merge(x,y, how = 'outer', on = 'col1')
+#################
 
 x = pd.read_csv("datasets/Guangren_table34.csv")
 x.info()
