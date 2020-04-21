@@ -6,61 +6,55 @@ from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
 from sklearn.cluster import KMeans
 
+########## KMEANS WElL LOGS
 
-############# KMEANS color segmentation
 import pandas as pd
-import numpy as np
-import os
-from matplotlib.image import imread # you could also use `imageio.imread()`
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-
-image = imread(os.path.join("datasets","ladybug.png"))
-image.shape
-
-    np.array([(1.5,2,3), (4,5,6)])
-c = np.array([[(1.5,2,3), (4,5,6)], [(3,2,1), (4,5,6)]], dtype = float)
-c.shape
-c.reshape(-1, 3)
-
-X = image.reshape(-1, 3)
-kmeans = KMeans(n_clusters=8).fit(X)
-segmented_img = kmeans.cluster_centers_[kmeans.labels_]
-segmented_img = segmented_img.reshape(image.shape)
-
-segmented_imgs = []
-n_colors = (10, 8, 6, 4, 2)
-for n_clusters in n_colors:
-    kmeans = KMeans(n_clusters=n_clusters, random_state=42).fit(X)
-    segmented_img = kmeans.cluster_centers_[kmeans.labels_]
-    segmented_imgs.append(segmented_img.reshape(image.shape))
-
-plt.figure(figsize=(10,5))
-plt.subplots_adjust(wspace=0.05, hspace=0.1)
-
-plt.subplot(231)
-plt.imshow(image)
-plt.title("Original image")
-plt.axis('off')
-
-for idx, n_clusters in enumerate(n_colors):
-    plt.subplot(232 + idx)
-    plt.imshow(segmented_imgs[idx])
-    plt.title("{} colors".format(n_clusters))
-    plt.axis('off')
-
-plt.show()
-
-########## KMEAS WElL LOGS
-
 import lasio
-import welly
-
 las = lasio.read("datasets/47-019-00241-00-00.txt")
 las.keys()
-df = las.df().iloc[1:,:]
-gr = pd.to_numeric(df['GR']).replace(-999.25, np.nan)
+df = las.df().iloc[1:,:].apply(pd.to_numeric).replace(-999.25, np.nan)
+
+# 1D Kmeans
+gr = pd.to_numeric(df['GR']).dropna()
 gr.describe()
+gr = gr.sample(100).copy()
+kmeans = KMeans(n_clusters=2).fit(gr.values.reshape(-1, 1))
+grc = pd.DataFrame({'GR':gr, 'Lithology':kmeans.labels_})
+centers = np.sort(kmeans.cluster_centers_[:,0])
+n = (centers.shape[0]-1)
+centers[0:n] + np.diff(centers)/2 # cutoff
+# grc.plot(y='GR', color = 'Lithology', colormap='viridis')
+grc.reset_index(inplace=True)
+graph = sns.scatterplot(x="DEPT", y="GR", data=grc, hue='Lithology', palette="Set2")
+# x = np.linspace(grc.index.min(), grc.index.max(), num=50)
+# y = np.array(centers[0:2] + np.diff(centers)/2)
+for cutoff in (centers[0:n] + np.diff(centers)/2):
+    graph.axhline(cutoff)
+plt.show()
+
+graph = sns.lineplot(x="DEPT", y="GR", data=grc, markers=True)
+for cutoff in (centers[0:n] + np.diff(centers)/2):
+    graph.axhline(cutoff)
+plt.show()
+
+
+# Kmeans
+100 * df.isna().sum()/len(df)
+
+df= df.dropna(inplace=True, how='all')
+df = df.sample(200)
+kmeans = KMeans(n_clusters=2).fit(df)
+df['cluster'] = kmeans.labels_
+centers = np.sort(kmeans.cluster_centers_[:,0])
+df.reset_index(inplace=True)
+df['Lithology'] = kmeans.labels_
+graph = sns.scatterplot(x="DEPT", y="GR", data=df, hue='Lithology', palette="Set2")
+# x = np.linspace(grc.index.min(), grc.index.max(), num=50)
+# y = np.array(centers[0:2] + np.diff(centers)/2)
+for cutoff in (centers[0:n] + np.diff(centers)/2):
+    graph.axhline(cutoff)
+plt.show()
+
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -124,7 +118,6 @@ plt.plot(X,y, 'b.')
 plt.show()
 
 mean_squared_error(y, y_pred = mltree.predict(X))
-
 
 ###############
 co=pd.DataFrame({"x":[-1,0,3],"y":[-7,0,2]})
