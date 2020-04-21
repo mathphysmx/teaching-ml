@@ -12,9 +12,58 @@ import pandas as pd
 import lasio
 las = lasio.read("datasets/47-019-00241-00-00.txt")
 las.keys()
+las['GR']
+df = las.df()
+df = df.iloc[1:, ]
+
+gr = pd.to_numeric(df['GR'])
+gr.replace(to_replace=-999.25, value=np.nan, inplace=True)
+gr.dropna(inplace=True)
+
+kmeans = KMeans(n_clusters=4)
+kmeans.fit(gr.values.reshape(-1,1))
+
+kmeans.cluster_centers_
+kmeans.labels_
+
+result = pd.DataFrame({'GR':gr, 'Lithology':kmeans.labels_})
+# result.to_excel('clusters_GR.xlsx')
+
+graph = result.plot(y='GR')
+for i in kmeans.cluster_centers_:
+    graph.axhline(i)
+# graph.axhline(kmeans.cluster_centers_[0])
+# graph.axhline(kmeans.cluster_centers_[1])
+# plt.scatter(x = gr.index, y = gr.values, c = kmeans.labels_, colormap='viridis')
+plt.show()
+
+result.reset_index(inplace=True)
+graph = sns.scatterplot(x="DEPT", y="GR", data=result, hue='Lithology', palette="Set2")
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+########## KMEANS WElL LOGS
+
+import pandas as pd
+import lasio
+las = lasio.read("datasets/47-019-00241-00-00.txt")
+las.keys()
 df = las.df().iloc[1:,:].apply(pd.to_numeric).replace(-999.25, np.nan)
 
-# 1D Kmeans
 gr = pd.to_numeric(df['GR']).dropna()
 gr.describe()
 gr = gr.sample(100).copy()
@@ -36,6 +85,8 @@ graph = sns.lineplot(x="DEPT", y="GR", data=grc, markers=True)
 for cutoff in (centers[0:n] + np.diff(centers)/2):
     graph.axhline(cutoff)
 plt.show()
+
+grc.to_csv('clusters.csv')
 
 
 # Kmeans
