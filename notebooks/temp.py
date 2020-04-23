@@ -4,7 +4,43 @@ import seaborn as sns
 import numpy as np
 from sklearn import linear_model
 from sklearn.metrics import mean_squared_error
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, DBSCAN
+from sklearn.metrics import pairwise_distances
+
+
+
+######### CLUSTERING
+np.random.seed(42)
+n= 100
+clust1 = np.random.normal(5, 1.5, (n, 2))
+plt.scatter(clust1[:,0], y=clust1[:,1])
+plt.show()
+
+clust2 = np.random.normal(15, 4, (n,2))
+
+dataset = np.concatenate((clust1, clust2))
+
+plt.scatter(x=dataset[:,0], y=dataset[:,1], c = np.concatenate(([0]*n, [1]*n)))
+plt.show()
+
+kmeans = KMeans(n_clusters=2)
+kmeans.fit(dataset)
+plt.scatter(x=dataset[:,0], y=dataset[:,1], c = kmeans.labels_)
+plt.show()
+
+dbscan = DBSCAN(eps = 2,min_samples=5)
+dbscan.fit(dataset)
+# plt.grid(color='g', linestyle='-', linewidth=1)
+plt.scatter(x=dataset[:,0], y=dataset[:,1], c = dbscan.labels_)
+plt.show()
+
+def mindist(x):
+    return(x[x>0].min())
+
+from sklearn.metrics import pairwise_distances
+df = pd.DataFrame(pairwise_distances(dataset, dataset))
+plt.scatter(x = df.apply(mindist).values, y=range(dataset.shape[0]))
+plt.show()
 
 ########## KMEANS WElL LOGS
 
@@ -40,21 +76,6 @@ plt.show()
 result.reset_index(inplace=True)
 graph = sns.scatterplot(x="DEPT", y="GR", data=result, hue='Lithology', palette="Set2")
 plt.show()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ########## KMEANS WElL LOGS
 
