@@ -2,45 +2,45 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
-from sklearn import linear_model
-from sklearn.metrics import mean_squared_error
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.metrics import pairwise_distances
 
-
-
-######### CLUSTERING
-np.random.seed(42)
-n= 100
-clust1 = np.random.normal(5, 1.5, (n, 2))
-plt.scatter(clust1[:,0], y=clust1[:,1])
-plt.show()
-
-clust2 = np.random.normal(15, 4, (n,2))
-
+#### CLUSTERING
+n = 100
+np.random.seed(844)
+clust1 = np.random.normal(5, 2, (n, 2))
+clust2 = np.random.normal(15, 3, (n,2))
 dataset = np.concatenate((clust1, clust2))
 
-plt.scatter(x=dataset[:,0], y=dataset[:,1], c = np.concatenate(([0]*n, [1]*n)))
+plt.scatter(x=dataset[:,0], y=dataset[:,1], c=[1]*n + [2]*n)
 plt.show()
 
+# KMEANS
 kmeans = KMeans(n_clusters=2)
 kmeans.fit(dataset)
-plt.scatter(x=dataset[:,0], y=dataset[:,1], c = kmeans.labels_)
+plt.scatter(x=dataset[:,0], y=dataset[:,1], c=kmeans.labels_)
 plt.show()
 
-dbscan = DBSCAN(eps = 2,min_samples=5)
+# DBSCAN
+dbscan = DBSCAN(eps=0.01, min_samples=4)
 dbscan.fit(dataset)
-# plt.grid(color='g', linestyle='-', linewidth=1)
-plt.scatter(x=dataset[:,0], y=dataset[:,1], c = dbscan.labels_)
+plt.scatter(x=dataset[:,0], y=dataset[:,1], c=dbscan.labels_)
 plt.show()
 
-def mindist(x):
-    return(x[x>0].min())
-
-from sklearn.metrics import pairwise_distances
-df = pd.DataFrame(pairwise_distances(dataset, dataset))
-plt.scatter(x = df.apply(mindist).values, y=range(dataset.shape[0]))
+# Explore distances
+datadist=pd.DataFrame(pairwise_distances(dataset,dataset)).apply(distmin)
+datadist.describe()
+plt.scatter(x = datadist.values, y=range(n))
 plt.show()
+
+
+# creacion de funcion de distancias
+x = np.array([[2, 3], [0,0], [10, 15]]).reshape(-1,2)
+df = pd.DataFrame(pairwise_distances(x,x))
+def distmin(y):
+    return((y[y>0]).min())
+distmin(y = df.iloc[2])
+
 
 ########## KMEANS WElL LOGS
 
