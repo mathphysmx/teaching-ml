@@ -1,11 +1,11 @@
 # Clustering
 
-1. Plot adding
-2. Add a label to each cluster
+1. Plot the datasets in the code below with a different color for each `clustX`.
+2. Describe the dataset using Pandas.
 3. Get the clusters using kmeans and DBSCAN
-4. Plot the each cluster with a different color (2 images, 1 for kmeans, 1 for DBSCAN).
-5. Export the data to MS Excel.
-6. Generate a Jupyter notebook.
+4. Plot the each cluster with a different color (2 images, 1 for kmeans, 1 for DBSCAN)
+5. Export the data to MS Excel
+6. Generate a Jupyter notebook
 
 ```python
 import numpy as np
