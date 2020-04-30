@@ -1,3 +1,90 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##################################
+model=keras.Sequential([
+    keras.layers.Flatten(input_shape=(28,28)),
+    keras.layers.Dense(128,activation='relu'),
+    keras.layers.Dense(10,activation='softmax')
+])
+
+model.compile(optimizer='adam',
+    loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+    metrics=['accuracy'])
+
+model.fit(train_images, train_labels,epochs=5)
+
+a= model.evaluate(test_images, test_labels)
+
+prob = keras.Sequential([model, keras.layers.Softmax()])
+predictions = prob.predict(test_images)
+
+predictions[0].max()
+predictions[0]
+class_names[np.argmax(predictions[0])]
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
+prob.save('asdflkaj.h5')
+
+prob = tf.keras.models.load_model('asdflkaj.h5')
+tf.keras.models.load_model
+
+
+def plot_image(i, predictions_array, true_label, img):
+  predictions_array, true_label, img = predictions_array, true_label[i], img[i]
+  plt.grid(False)
+  plt.xticks([])
+  plt.yticks([])
+
+  plt.imshow(img, cmap=plt.cm.binary)
+
+  predicted_label = np.argmax(predictions_array)
+  if predicted_label == true_label:
+    color = 'blue'
+  else:
+    color = 'red'
+
+  plt.xlabel("{} {:2.0f}% ({})".format(class_names[predicted_label],
+                                100*np.max(predictions_array),
+                                class_names[true_label]),
+                                color=color)
+
+def plot_value_array(i, predictions_array, true_label):
+  predictions_array, true_label = predictions_array, true_label[i]
+  plt.grid(False)
+  plt.xticks(range(10))
+  plt.yticks([])
+  thisplot = plt.bar(range(10), predictions_array, color="#777777")
+  plt.ylim([0, 1])
+  predicted_label = np.argmax(predictions_array)
+
+  thisplot[predicted_label].set_color('red')
+  thisplot[true_label].set_color('blue')
+
+##############33
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -43,108 +130,6 @@ distmin(y = df.iloc[2])
 
 
 ########## KMEANS WElL LOGS
-
-import pandas as pd
-import lasio
-las = lasio.read("datasets/47-019-00241-00-00.txt")
-las.keys()
-las['GR']
-df = las.df()
-df = df.iloc[1:, ]
-
-gr = pd.to_numeric(df['GR'])
-gr.replace(to_replace=-999.25, value=np.nan, inplace=True)
-gr.dropna(inplace=True)
-
-kmeans = KMeans(n_clusters=4)
-kmeans.fit(gr.values.reshape(-1,1))
-
-kmeans.cluster_centers_
-kmeans.labels_
-
-result = pd.DataFrame({'GR':gr, 'Lithology':kmeans.labels_})
-# result.to_excel('clusters_GR.xlsx')
-
-graph = result.plot(y='GR')
-for i in kmeans.cluster_centers_:
-    graph.axhline(i)
-# graph.axhline(kmeans.cluster_centers_[0])
-# graph.axhline(kmeans.cluster_centers_[1])
-# plt.scatter(x = gr.index, y = gr.values, c = kmeans.labels_, colormap='viridis')
-plt.show()
-
-result.reset_index(inplace=True)
-graph = sns.scatterplot(x="DEPT", y="GR", data=result, hue='Lithology', palette="Set2")
-plt.show()
-
-########## KMEANS WElL LOGS
-
-import pandas as pd
-import lasio
-las = lasio.read("datasets/47-019-00241-00-00.txt")
-las.keys()
-df = las.df().iloc[1:,:].apply(pd.to_numeric).replace(-999.25, np.nan)
-
-gr = pd.to_numeric(df['GR']).dropna()
-gr.describe()
-gr = gr.sample(100).copy()
-kmeans = KMeans(n_clusters=2).fit(gr.values.reshape(-1, 1))
-grc = pd.DataFrame({'GR':gr, 'Lithology':kmeans.labels_})
-centers = np.sort(kmeans.cluster_centers_[:,0])
-n = (centers.shape[0]-1)
-centers[0:n] + np.diff(centers)/2 # cutoff
-# grc.plot(y='GR', color = 'Lithology', colormap='viridis')
-grc.reset_index(inplace=True)
-graph = sns.scatterplot(x="DEPT", y="GR", data=grc, hue='Lithology', palette="Set2")
-# x = np.linspace(grc.index.min(), grc.index.max(), num=50)
-# y = np.array(centers[0:2] + np.diff(centers)/2)
-for cutoff in (centers[0:n] + np.diff(centers)/2):
-    graph.axhline(cutoff)
-plt.show()
-
-graph = sns.lineplot(x="DEPT", y="GR", data=grc, markers=True)
-for cutoff in (centers[0:n] + np.diff(centers)/2):
-    graph.axhline(cutoff)
-plt.show()
-
-grc.to_csv('clusters.csv')
-
-
-# Kmeans
-100 * df.isna().sum()/len(df)
-
-df= df.dropna(inplace=True, how='all')
-df = df.sample(200)
-kmeans = KMeans(n_clusters=2).fit(df)
-df['cluster'] = kmeans.labels_
-centers = np.sort(kmeans.cluster_centers_[:,0])
-df.reset_index(inplace=True)
-df['Lithology'] = kmeans.labels_
-graph = sns.scatterplot(x="DEPT", y="GR", data=df, hue='Lithology', palette="Set2")
-# x = np.linspace(grc.index.min(), grc.index.max(), num=50)
-# y = np.array(centers[0:2] + np.diff(centers)/2)
-for cutoff in (centers[0:n] + np.diff(centers)/2):
-    graph.axhline(cutoff)
-plt.show()
-
-
-import numpy as np
-import matplotlib.pyplot as plt
-import welly
-welly.__version__
-from welly import Well
-w = Well.from_las("datasets/P-129_out.LAS")
-w.data['GR']
-w.plot()
-plt.show()
-gr = w.data['GR']
-gr[1000:1010]
-gr.plot(); plt.show()
-gr.plot(lw=0.3); plt.show()
-gr.plot_2d(cmap='viridis', curve=True, lw=0.3, edgecolor='k')
-plt.show()
-
-
 ############
 import numpy as np
 import matplotlib.pyplot as plt
