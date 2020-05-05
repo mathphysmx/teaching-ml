@@ -2,7 +2,7 @@
 
 # cd /path/to/this/install_python_ml_class_geo.yml
 # conda env create -f install_python_ml_class_geo.yml # OR "conda env update -f py368.yml" after installing Intel Python and activating
-# # conda create -n myenvname python=3.7 tensorflow-mkl numpy pandas ipykernel
+# # conda create -n tensorflow python=3.7 tensorflow-mkl numpy pandas ipykernel
 # conda activate mlclassgeo
 # conda remove --name mlclassgeo --all 
 
