@@ -1,7 +1,79 @@
+import tensorflow as tf
+from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
 
+(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
 
+plt.imshow(train_images[1])
+plt.show()
+
+train_images = train_images/255
+test_images = test_images/255
+
+class_names = ['T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat',
+               'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot']
+
+model=keras.Sequential([
+  keras.layers.Flatten(input_shape=(28,28)),
+  keras.layers.Dense(128, activation='relu'),
+  keras.layers.Dense(256, activation='relu'),
+  keras.layers.Dense(10, activation='softmax')
+])
+
+
+model.compile(optimizer='adam',
+  loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
+  metrics=['accuracy'])
+
+model.fit(train_images, train_labels, epochs=10,validation_split=0.25)
+
+a=model.evaluate(test_images, test_labels)
+
+
+
+
+###############
+
+from sklearn.datasets import make_moons
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+
+X, y=make_moons(n_samples=1000, noise=0.3, random_state=0)
+plt.scatter(x=x[:,0], y=x[:,1],c=y)
+plt.show()
+X_train, X_val, y_train, y_val = train_test_split(X, y)
+
+
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import PolynomialFeatures
+polynomial_svm_clf = Pipeline([
+("poly_features", PolynomialFeatures(degree=3)),
+("scaler", StandardScaler()),
+("svm_clf", LinearSVC(C=10, loss="hinge"))
+])
+polynomial_svm_clf.fit(X, y)
+
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import VotingClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+log_clf = LogisticRegression()
+rnd_clf = RandomForestClassifier()
+svm_clf = SVC()
+voting_clf = VotingClassifier(
+estimators=[('lr', log_clf), ('rf', rnd_clf), ('svc', svm_clf)],
+voting='hard')
+
+
+voting_clf.fit(X_train, y_train)
+
+
+#########################
+
+import numpy as np
+import matplotlib.pyplot as plt
 
 from sklearn.datasets import load_iris
 from sklearn.tree import DecisionTreeClassifier
@@ -12,18 +84,6 @@ tree_clf = DecisionTreeClassifier(max_depth=2)
 tree_clf.fit(X, y)
 tree_clf.predict_proba([[5, 1.5]])
 tree_clf.predict([[5, 1.5]])
-
-################33
-x = np.linspace(0,1, 21)
-y=x*(1-x)
-plt.plot(x, y, 'b-')
-plt.ylabel('y')
-plt.xlabel('x')
-plt.show()
-
-
-#############
-
 
 ################
 import tensorflow as tf
