@@ -64,3 +64,4 @@
 6. Plot the vector $(4,3)$ and find a unit vector orthogonal to it.
 
 7. Find the orthogonal projection of $(4, 1)$ over $(3,4)$, and draw the vectors.
+8. Compute the mean ($\bar X$), variance ($\sigma^2$) and standard deviation ($\sigma$) of the following set $\{-2, 2, 4, 5.6, 4.9, 6.3, 8.5, 15\}$.
