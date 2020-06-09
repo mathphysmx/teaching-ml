@@ -12,6 +12,6 @@
 
     b. Plot the locations of all the wells
 
-    c. Create a pandas.DataFrame for each well
+    c. Extract each well into its own pandas.DataFrame
 
     d. For each well, plot the histogram corresponding to column **Var**

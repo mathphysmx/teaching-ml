@@ -9,6 +9,7 @@
    * Install [Anaconda Python](https://www.anaconda.com/distribution/) 3.x.
 
 # Homework assigment 0-B
+For all of the following excercises, use only paper and pen(cil) .
 
 1. Sofware for this course [installation estimated time: 1-3 hrs]
    2. Create a [GitHub account](https://github.com/join).
@@ -45,9 +46,10 @@
    \vdots \\
    \theta_n \\
    \end{pmatrix}$, $A = \begin{pmatrix}
-   1 \times 1, 1 \times 2, \ldots, 1 \times 6 \\
+   1 & 2 & 3 & 4 & 5 & 6 \\
+   2 & 4 & 6 & 8 & 10 & 12\\
    \vdots \\
-   5 \times 1, 5 \times 2, \ldots, 5 \times 6 \\
+   5 & 10 & 15 & 20 & 25 & 30 \\
    \end{pmatrix}$
 
    Do the following matrix operations
@@ -55,9 +57,9 @@
    i. $A^T$
    ii. $Ax$
    iii. $\theta^T x $. $\theta = (\theta_1, \ldots, \theta_n)^T$, $x = (x_1, \ldots, x_n)^T$
-   iv. $x^Tx$. $x = (x_1, \ldots, x_n)^T$
+   iv. $x^Tx$, where $x = (x_1, \ldots, x_n)^T$
 
-5. Write in matrix form, the following system of equations.
+5. Write in matrix form the following system of equations and solve it.
    $3x_1 + 6x_2 = 56$
    $-5x_1 + 5.7x_2 = 20$ 
 

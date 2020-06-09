@@ -22,8 +22,8 @@ Numbered comments below are only for the questions that were somehow incorrect. 
 
 # David
 
-2. Verify $\varepsilon$
-5. Answer OK. `Ml_classification = ["Unsupervised learnign"]+["Supervised learnign"]` con be simplified by `Ml_classification = ["Unsupervised learnign", "Supervised learnign"]`
+2. Verify $\varepsilon$ formula. y_true <->  y_pred .
+5. Answer OK. `Ml_classification = ["Unsupervised learning"]+["Supervised learning"]` con be simplified by `Ml_classification = ["Unsupervised learning", "Supervised learning"]`
 7d-7f missing.
 
 # Karla
