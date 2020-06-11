@@ -1,0 +1,94 @@
+---
+title: "Parcial 2"
+author: "Cristian David Valentin Ramirez"
+date: "6/2/2020"
+output: html_document
+---
+
+#### Punto 1
+
+
+![Solucion](/Users/david/Downloads/IMG_20200602_114728.jpg)
+
+
+#### Punto 2
+
+```{r,echo=FALSE}
+
+p = seq(0, 1, 0.01)
+gini = p * (1 - p) * 2
+class_err = 1 - pmax(p, 1 - p)
+matplot(p, cbind(gini, class_err), col = c("red", "green"))
+legend(x=0.2,y=0.05,legend = 'Red=Gini; Green=Classification Error')
+title('Punto 2')
+```
+
+
+#### Punto 3
+
+```{r,echo=FALSE}
+p = c(0.1, 0.15, 0.2, 0.2, 0.55, 0.6, 0.6, 0.65, 0.7, 0.75)
+hard_voting=sum(p >= 0.5) > sum(p < 0.5)
+soft_voting=mean(p)
+print('Hard Voting')
+hard_voting
+```
+
+El número de predicciones para Rojo es mayor que para verde, por lo que se decide que será rojo.
+
+```{r,echo=FALSE}
+print('Soft voting')
+soft_voting
+```
+
+La probabilidad media es menor a $0.5$ por lo que se decide que será verde.
+
+#### Punto 4
+
+La variable más importante en la figura 1 de la izquierda es $x_1$, mientras que en el arbol de la derecha es $x_2$, debido a que en ambos casos dividen la mitad del dataset.
+
+#### Punto 5
+
+El método bagging crea multiples copias del dataset original usando bootstrap, para luego adecuarlos en arboles de desicion diferentes y luego combinar los arboles en un solo modelo. El método boosting crea arboles de manera secuencial, es decir crea cada arbol usando información de los arboles anteriores, sin utilizar el muestreo bootstrap, por lo que cada arbol se adecua a una versión modificada del dataset original
+
+#### Punto 6
+
+El algorithmo random forest genera arboles de decisión mediante el muestreo bootstrap, pero cuando se va a realizar una división en el arbol, se considera una muestra aleatoria de las variables (predictores), es decir no se usan todos los predictores, a partir de la cual solamente se usa uno de estos para realizar la división. Normalmente la muestra aleatoria se define como $\sqrt p$ siendo $p$ el número total de predictores.  
+
+
+
+#### Punto 8
+
+La diferencia entre K-means y DBSCAN consiste en que K-means crea los cluster según su distancia a la media del cluster, mientras que DBSCAN crea los cluster uniendo los datos según su cercania de unos a otros en un radio determinado
+
+#### Punto 9
+
+El nodo Gini generalmente es menor que sus padres, esto es debido al costo de la función del algoritmo de entrenamiento CART, el cual divide cada nodo de una forma que minimiza el peso de la suma de las impurezas de los hijos. No siempre es menor, generalmente lo es.
+
+#### Punto 10
+
+Los parámetros de una red neuronal son el nodo, la capa y las neuronas. Cada neurona está constituida por una función de paso, un peso de la suma, pesos de las entradas y las entradas.  
+
+#### Punto 11
+
+Para los arboles de decisión no es relevante si los datos de entrenamiento se encuentran escalados, por lo que escalar los datos no es relevante, y no sería una buena idea.
+
+#### Punto 12
+
+Siguiendo la ecuación para el cálculo del índice de Gini:
+
+<center>
+
+$G=\sum^K_{k=1}\hat p_{mk}(1-\hat p_{mk})$
+</center>
+<br>  
+```{r,echo=FALSE}
+ga=(3/18)*(1-(3/18))+(8/18)*(1-(8/18))+(7/18)*(1-(7/18))
+gb=(2/18)*(1-(2/18))+(2/18)*(2-(8/18))+(16/18)*(1-(16/18))
+print('Gini punto a=')
+ga
+print('Gini punto b=')
+gb
+```
+
+
