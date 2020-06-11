@@ -35,7 +35,7 @@ Related sites for software demonstrations are:
 * [Equinor's Volve Oil & Gas dataset](https://www.equinor.com/en/how-and-why/digitalisation-in-our-dna/volve-field-data-village-download.html)
 * [West Virginia Geological Survey](http://www.wvgs.wvnet.edu/atg/EfileViewer.aspx)
 
-![WVGS](well_log_data_source.png)
+[![http://www.wvgs.wvnet.edu/atg/EfileViewer.aspx](well_log_data_source.png)](http://www.wvgs.wvnet.edu/atg/EfileViewer.aspx)
 
 # Bibliography
 
